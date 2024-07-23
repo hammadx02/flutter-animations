@@ -29,6 +29,18 @@ extension ToPath on CircleSide {
         clockwise = true;
         break;
     }
+
+    path.arcToPoint(
+      offset,
+      radius: Radius.elliptical(
+        size.width / 2,
+        size.height / 2,
+      ),
+      clockwise: clockwise,
+    );
+
+    path.close();
+    return path;
   }
 }
 
