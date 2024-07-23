@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Example2 extends StatefulWidget {
   const Example2({super.key});
@@ -44,6 +45,21 @@ extension ToPath on CircleSide {
   }
 }
 
+class HalfCircleCliper extends CustomClipper<Path> {
+  final CircleSide side;
+
+  HalfCircleCliper({
+    super.reclip,
+    required this.side,
+  });
+
+  @override
+  Path getClip(Size size) => side.toPath(size);
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
+}
+
 class _Example2State extends State<Example2> {
   @override
   Widget build(BuildContext context) {
@@ -52,15 +68,21 @@ class _Example2State extends State<Example2> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              color: const Color(0xff0057b7),
-              width: 150,
-              height: 150,
+            ClipPath(
+              clipper: HalfCircleCliper(side: CircleSide.left),
+              child: Container(
+                color: const Color(0xff0057b7),
+                width: 150,
+                height: 150,
+              ),
             ),
-            Container(
-              color: const Color(0xffffd700),
-              width: 150,
-              height: 150,
+            ClipPath(
+              clipper: HalfCircleCliper(side: CircleSide.right),
+              child: Container(
+                color: const Color(0xffffd700),
+                width: 150,
+                height: 150,
+              ),
             ),
           ],
         ),
