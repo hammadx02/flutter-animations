@@ -107,6 +107,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
+  lorem_ipsum:
+    dependency: "direct main"
+    description:
+      name: lorem_ipsum
+      sha256: b018535db8525a45bbcd7a44e151480e2618e2111c5305725e3713ce7c6ba677
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
+  lorem_ipsum_generator:
+    dependency: "direct main"
+    description:
+      name: lorem_ipsum_generator
+      sha256: "8fc3db0cac58b06fa2ef53deec6836ddd3a87d6acdeb25b8e8475c962146f46c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   matcher:
     dependency: transitive
     description:
