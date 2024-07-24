@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Sandbox extends StatefulWidget {
   const Sandbox({super.key});
@@ -10,8 +9,8 @@ class Sandbox extends StatefulWidget {
 
 class _SandboxState extends State<Sandbox> {
   double _opacity = 1;
-  double _margin = 20;
-  double _width = 200;
+  double _margin = 0;
+  double _width = 210;
   Color _color = Colors.blue;
 
   @override
@@ -31,12 +30,59 @@ class _SandboxState extends State<Sandbox> {
               onPressed: () {
                 setState(
                   () {
-                    _margin = 50;
+                    _margin = 30;
                   },
                 );
               },
               child: const Text(
                 'Animate margin',
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(
+                  () {
+                    _width = 420;
+                  },
+                );
+              },
+              child: const Text(
+                'Animate width',
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(
+                  () {
+                    _color = Colors.purple;
+                  },
+                );
+              },
+              child: const Text(
+                'Animate color',
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(
+                  () {
+                    _opacity = 0;
+                  },
+                );
+              },
+              child: const Text(
+                'Animate opicity',
+              ),
+            ),
+            AnimatedOpacity(
+              opacity: _opacity,
+              duration: const Duration(seconds: 2),
+              child: const Text(
+                'Hide me',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
               ),
             ),
           ],
