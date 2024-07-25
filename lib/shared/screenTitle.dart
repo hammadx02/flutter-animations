@@ -10,6 +10,7 @@ class ScreenTitle extends StatelessWidget {
     return TweenAnimationBuilder(
       duration: const Duration(milliseconds: 1000),
       tween: Tween<double>(begin: 0, end: 1),
+      curve: Curves.easeIn,
       builder: (BuildContext context, double _val, Widget? child) {
         return Opacity(
           opacity: _val,
