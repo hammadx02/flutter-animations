@@ -25,13 +25,18 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        Icons.favorite,
-        color: _colorAnimation.value,
-        size: 30,
-      ),
-      onPressed: () {},
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (BuildContext context, _) {
+        return IconButton(
+          icon: Icon(
+            Icons.favorite,
+            color: _colorAnimation.value,
+            size: 30,
+          ),
+          onPressed: () {},
+        );
+      },
     );
   }
 }
